@@ -55,7 +55,7 @@ B1PrimaryGeneratorAction::B1PrimaryGeneratorAction()
   G4ParticleDefinition* particle
     = particleTable->FindParticle(particleName="proton");
   fParticleGun->SetParticleDefinition(particle);
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,-1.,0.));
 
   fParticleGun->SetParticleEnergy(1.*TeV);
 }
@@ -82,7 +82,7 @@ void B1PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
 
   G4double posz = (detectorConstruction->get_position());
-  fParticleGun->SetParticlePosition(G4ThreeVector(0,0,-posz));
+  fParticleGun->SetParticlePosition(G4ThreeVector(0,20*m,0));
 
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }
